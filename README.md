@@ -15,12 +15,14 @@ FedSteller 是项目「基于MindSpore的国产化联邦学习框架」的代码
 
 ## 国产软硬件适配
 
-| 层次 | 组件 | 在框架中的使用 |
+| 层次 | 组件 | 用途 |
 | --- | --- | --- |
-| 深度学习框架 | 昇思 MindSpore 1.8.1 | 网络定义（`mindspore.nn`）、数据管道（`mindspore.dataset`）、训练、评估、checkpoint 读写与模型导出 |
-| 模型库 | MindSpore Vision（mindvision 0.1.0） | ResNet10 / ResNet12 骨干网络与训练过程的损失监控 |
+| 深度学习框架 | 昇思 MindSpore 1.8.1 | 网络定义、数据管道、训练、评估与模型导出 |
+| 模型库 | mindvision 0.1.0 | ResNet10 / ResNet12 骨干网络与损失监控 |
 | AI 处理器 | 昇腾 Ascend 910 | 本地预训练、联邦训练与评估 |
-| 模型格式 | MindSpore checkpoint、MindIR、AIR | `.ckpt` 用于训练与评估；MindIR 用于 MindSpore 与 MindSpore Lite 推理；AIR 可经 ATC 工具转换为 OM 模型，部署到昇腾推理设备 |
+| 模型格式 | ckpt、MindIR、AIR | 模型保存、推理与昇腾部署 |
+
+网络与数据管道分别基于 `mindspore.nn` 与 `mindspore.dataset` 实现。`.ckpt` 文件用于训练与评估；MindIR 文件可由 MindSpore 与 MindSpore Lite 加载推理；AIR 文件可经 ATC 工具转换为 OM 模型，部署到昇腾推理设备。
 
 ## 方法概述
 
